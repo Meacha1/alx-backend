@@ -17,7 +17,7 @@ def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
 
     return {
       'page_size': len(data),
-      'page': page, 
+      'page': page,
       'data': data,
       'next_page': next_page,
       'prev_page': prev_page,
