@@ -7,12 +7,7 @@ from typing import Tuple
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
-    """ Type-annotated function index_range that takes a integer arguments.
-        Args:
-            page: page number.
-            page_size: number of items per page.
-        Return:
-            A tuple with a start index and an end index.
+    """ Return a tuple of size two containing a start index and an end index
     """
     return ((page - 1) * page_size, page * page_size)
 
@@ -37,13 +32,7 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """Get page
-            Args:
-                page: page number.
-                page_size: number of items per page.
-            Return:
-                The appropriate page of the dataset.
-        """
+        """Get a page of the dataset"""
         self.dataset()
         for i in [page, page_size]:
             assert isinstance(i, int) and page > 0
@@ -52,13 +41,7 @@ class Server:
         return self.__dataset[range_i[0]:range_i[1]]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
-        """Get hypermedia pagination.
-            Args:
-                page: page number.
-                page_size: number of items per page.
-            Return:
-                A dictionary.
-        """
+        """Get a page of the dataset"""
         data: int = self.get_page(page, page_size)
         totalPages: int = math.ceil(len(self.__dataset) / page_size)
         return {
