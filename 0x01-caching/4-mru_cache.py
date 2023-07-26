@@ -1,4 +1,3 @@
-# Create a class MRUCache that inherits from BaseCaching and is a caching system
 #!/usr/bin/env python3
 ''' MRU Caching System '''
 from base_caching import BaseCaching
