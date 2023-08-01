@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+'''Basic flask app, with a single route and template'''
 from flask import Flask, render_template
 from flask_babel import Babel
 
