@@ -25,7 +25,7 @@ def get_locale():
     for query in queries:
         if 'locale=' in query:
             return query.split('=')[1]
-    
+
     # if locale not in app.config['LANGUAGES']:
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
