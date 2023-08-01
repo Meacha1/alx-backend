@@ -24,14 +24,19 @@ users = {
 }
 
 
+def get_user():
+    '''Get user'''
+    try:
+        login_as = request.args.get('login_as')
+        return users[int(login_as)]
+    except Exception:
+        return None
+
 @app.before_request
 def before_request():
     '''Before request'''
-    user_id = request.args.get('login_as')
-    if user_id:
-        user = users.get(int(user_id))
-        if user:
-            g.user = user
+    user = get_user()
+    g.user = user
 
 
 @babel.localeselector
